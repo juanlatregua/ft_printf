@@ -3,32 +3,33 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jsilva-m <jsilva-m@student.42.fr>          +#+  +:+       +#+         #
+#    By: jsilva-m <jsilva-m@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/11 17:01:31 by jsilva-m          #+#    #+#              #
-#    Updated: 2023/11/11 17:09:01 by jsilva-m         ###   ########.fr        #
+#    Created: 2023/11/12 11:47:32 by jsilva-m          #+#    #+#              #
+#    Updated: 2023/11/12 11:48:39 by jsilva-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRCS = 
+SRCS = ft_printf.c ft_print_hex ft_p ft_print_funcs.c ft_print_hex.c ft_print_unsig_nbr.c
 
+OBJS = $(SRCS:.c=.o)
 
-OBJ = $(SRC:.c=.o)
+CC = gcc
 
-FLAGS = -Wall -Wextra -Werror
-
-$(NAME): $(SRCS)
-		@gcc -c $(FLAGS) $(SRCS)
-		@ar rcs $(NAME) $(OBJ)
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-clean: 
-		@rm -f $(OBJ)
+$(NAME): $(OBJS)
+	ar -rcs $(NAME) $(OBJS)
 
-fclean: @rm -rf $(NAME)
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME) $(OBJS)
 
 re: fclean all
 
