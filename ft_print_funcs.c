@@ -12,23 +12,17 @@
 
 #include "ft_printf.h"
 
-int	ft_printchar(char c)
-{
-	write(1, &c, 1);
-	return (1);
-}
-
 int	ft_printstr(char *str)
 {
 	int	len;
 
-	i = 0;
+	len  = 0;
 	if (!str)
-		return (ft_putstr("(null)"));
-	while (str[len])
+		return (ft_printstr("(null)"));
+	while (str[len] != '\0')
 	{
 		ft_printchar(str[len]);
-		i++;
+		len++;
 	}
 	return (len);
 }
@@ -45,22 +39,15 @@ int	ft_printnbr(int nb)
 	}
 	else if (nb < 0)
 	{
-		ft_printchar('-');
-		n = -nb;
-		len++;
+		len += ft_printchar('-');
+        len += ft_printnbr(-nb);
 	}
-	if (n > 9)
+	else if (nb > 9)
 	{
-		ft_printnbr(n / 10);
-		ft_printnbr(n % 10);
+		len += ft_printnbr(nb / 10);
+		len += ft_printnbr(nb % 10);
 	}
 	else
-		ft_printhar(n + '0');
+		len += ft_printchar(nb + '0');
 	return (len);
-}
-
-int	ft_printpercent(void)
-{
-	write(1, "%", 1);
-	return (1);
 }

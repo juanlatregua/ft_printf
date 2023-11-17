@@ -11,14 +11,9 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "ft_print_funcs.c"
 
-int	ft_printchar(char c)
-{
-	write(1, &c, 1);
-	return (1);
-}
-
-int	ft_formats(va_list args, const char format)
+int	ft_formats(va_list args,char const   format)
 {
 	int		len;
 	char	*hex;
@@ -32,16 +27,18 @@ int	ft_formats(va_list args, const char format)
 	else if (format == 'p')
 	{
 		len += ft_printstr("0x");
-		len += (va_arg(args, unsigned long), hex);
+		len += ft_print_hex(va_arg(args, unsigned long), hex);
 	}
 	else if (format == 'd' || format == 'i')
 		len += ft_printnbr(va_arg(args, int));
 	else if (format == 'u')
-		len += ft_print_unsig(va_arg(args, unsigned int));
-	else if (format == 'x' || format == 'X')
-		len += ft_print_hex(va_arg(args, unsigned int), format);
+		len += ft_print_unsig_nbr(va_arg(args, unsigned int));
+	else if (format == 'x')
+        len += ft_print_hex(va_arg(args, unsigned int), hex);
+    else if (format == 'X')
+		len += ft_print_hex(va_arg(args, unsigned long), "0123456789ABCDEF");
 	else if (format == '%')
-		len += ft_printpercent();
+		len += ft_printchar('%');
 	return (len);
 }
 
@@ -57,13 +54,15 @@ int	ft_printf(const char *str, ...)
 	while (str[i])
 	{
 		if (str[i] == '%')
-			len += ft_formats(&args, str[i + 1]);
-		i++;
+        {
+			len += ft_formats(args, str[i]);
+		    i++;
+        }
 		else
-		{
-			len += ft_putchar(str[i]);
-			i++;
-		}
+        {
+			len += ft_printchar(str[i]);
+            i++;
+        }
 	}
 	va_end(args);
 	return (len);

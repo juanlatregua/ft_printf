@@ -19,8 +19,8 @@ int	ft_print_unsig_nbr(unsigned int n)
 	len = 0;
 	if (n > 9)
 	{
-		len += ft_print_unsig_nbr(n / 10);
-		len += ft_print_unsig_nbr(n % 10);
+		len += ft_printnbr(n / 10);
+		len += ft_printnbr(n % 10);
 	}
 	else
 	{

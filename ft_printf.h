@@ -20,8 +20,8 @@ int	ft_printf(const char *format, ...);
 int	ft_printchar(char c);
 int	ft_printstr(char *str);
 int	ft_printnbr(int nb);
-int	ft_hexlen(unsigned int n);
-int	ft_print_hex(unsigned int n);
+int	ft_hexlen(unsigned long  n);
+int	ft_print_hex(unsigned long p, char  *hex);
 int	ft_printnbr_hex(unsigned int n);
 int	ft_print_unsig_nbr(unsigned int n);
 

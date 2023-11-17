@@ -16,42 +16,20 @@
 // 
 #include "ft_printf.h"
 
-int	ft_hexlen(unsigned int n)
+int	ft_print_hex(unsigned long   p, char *hex)
 {
-	int	len;
+    int len;
+    
+    len = 0;
+    if (p ==0)
+        return (ft_printchar('0'));
+    if (p > 15)
+    {
+        len += ft_print_hex(p / 16, hex);
+        len += ft_print_hex(p % 16, hex);
 
-	len = 0;
-	while (n > 0)
-	{
-		n /= 16;
-		len++;
-	}
-	return (len);
-}
-
-void	ft_print_hex(unsigned int n, char c)
-{
-	if (n > 15)
-	{
-		ft_print_hex(n / 16, c);
-		ft_print_hex(n % 16, c);
-	}
-	else
-	{
-		if (n < 10)
-			ft_printchar(n + '0');
-		else if (c == 'x')
-			ft_printchar(n + 87);
-		else if (c == 'X')
-			ft_printchar(n + 55);
-	}
-}
-
-int	ft_print_hex(unsigned int n, char c)
-{
-	if (n == 0)
-		return (ft_printchar('0'));
-	else
-		ft_printhex(n, c);
-	return (ft_hexlen(n));
+    }
+    else
+        len += ft_print_hex(p % 16, hex);
+    return (len);
 }
