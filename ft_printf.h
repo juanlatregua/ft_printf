@@ -6,7 +6,7 @@
 /*   By: jsilva-m <jsilva-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:51:23 by jsilva-m          #+#    #+#             */
-/*   Updated: 2023/11/12 12:05:26 by jsilva-m         ###   ########.fr       */
+/*   Updated: 2023/11/18 19:12:58 by jsilva-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 
 int	ft_printf(const char *format, ...);
-int	ft_printchar(char c);
+int	ft_printchar(int c);
 int	ft_printstr(char *str);
 int	ft_printnbr(int nb);
 int	ft_hexlen(unsigned long  n);

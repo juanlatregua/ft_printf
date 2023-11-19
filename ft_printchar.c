@@ -3,17 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsilva-m <jsilva-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jsilva-m <jsilva-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 19:56:09 by jsilva-m          #+#    #+#             */
-/*   Updated: 2023/11/17 20:04:26 by jsilva-m         ###   ########.fr       */
+/*   Updated: 2023/11/19 19:42:20 by jsilva-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// añadimos excepcion de %c y de tabulacion
 #include "ft_printf.h"
 
 int	ft_printchar(int c)
 {
-	write(1, c, 1)
-	return (1);
+	if (c == '\t')
+	{
+		write(1, "\t", 1);
+		return (1);
+	}
+	else
+	{
+		write(1, &c, 1);
+		return (1);
+	}
 }

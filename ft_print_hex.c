@@ -6,7 +6,7 @@
 /*   By: jsilva-m <jsilva-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:54:43 by jsilva-m          #+#    #+#             */
-/*   Updated: 2023/11/17 20:11:20 by jsilva-m         ###   ########.fr       */
+/*   Updated: 2023/11/19 18:35:29 by jsilva-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int	ft_print_hex(unsigned long	p, char *hex)
 		len += ft_print_hex(p % 16, hex);
 	}
 	else
-		len += ft_print_hex(p % 16, hex);
+		len += ft_print_hex(hex[p % 16], hex);
 	return (len);
 }
