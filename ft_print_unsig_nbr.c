@@ -6,7 +6,7 @@
 /*   By: jsilva-m <jsilva-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:44:50 by jsilva-m          #+#    #+#             */
-/*   Updated: 2023/11/19 19:03:20 by jsilva-m         ###   ########.fr       */
+/*   Updated: 2023/11/20 09:54:27 by jsilva-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	ft_print_unsig_nbr(unsigned int n)
 	{
 		len++;
 		len += ft_printchar(n + 48);
-		
 	}
 	return (len);
 }

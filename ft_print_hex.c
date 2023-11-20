@@ -6,7 +6,7 @@
 /*   By: jsilva-m <jsilva-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:54:43 by jsilva-m          #+#    #+#             */
-/*   Updated: 2023/11/19 18:35:29 by jsilva-m         ###   ########.fr       */
+/*   Updated: 2023/11/20 09:49:18 by jsilva-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 // 
 #include "ft_printf.h"
 
-int	ft_print_hex(unsigned long	p, char *hex)
+int	ft_print_hex(unsigned long p, char *hex)
 {
-	int len;
-	
+	int	len;
+
 	len = 0;
-	if (p ==0)
+	if (p == 0)
 		return (ft_printchar('0'));
 	if (p > 15)
 	{
