@@ -6,7 +6,7 @@
 /*   By: jsilva-m <jsilva-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:49:26 by jsilva-m          #+#    #+#             */
-/*   Updated: 2023/11/20 12:21:54 by jsilva-m         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:19:29 by jsilva-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_formats(va_list	args, char const	format)
 {
-	int		len;;
+	int		len;
 
 	len = 0;
 	if (format == 'c')
