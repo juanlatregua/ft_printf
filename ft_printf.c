@@ -6,7 +6,7 @@
 /*   By: jsilva-m <jsilva-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:49:26 by jsilva-m          #+#    #+#             */
-/*   Updated: 2023/11/22 16:19:29 by jsilva-m         ###   ########.fr       */
+/*   Updated: 2023/11/29 18:49:19 by jsilva-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ int	ft_formats(va_list	args, char const	format)
 	return (len);
 }
 
+int is_flag(char c)
+{
+	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' ||
+		c == 'u' || c == 'x' || c == 'X' || c == '%')
+		return (1);
+	return (0);
+}
+
 int	ft_printf(const char *str, ...)
 {
 	int		i;
@@ -54,8 +62,11 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			i++;
-			len += ft_formats(args, str[i]);
+
+			if (is_flag(str[i + 1])) {
+				i++;
+				len += ft_formats(args, str[i]);
+			}
 		}
 		else
 			len += ft_printchar(str[i]);
